@@ -27,7 +27,7 @@ class MediaAdminExtension extends AbstractAdminExtension
     /**
      * {@inheritdoc}
      */
-    public function configureRoutes(AdminInterface $admin, RouteCollectionInterface $collection)
+    public function configureRoutes(AdminInterface $admin, RouteCollectionInterface $collection): void
     {
         $collection->add('browser', 'browser');
         $collection->add('upload', 'upload');
