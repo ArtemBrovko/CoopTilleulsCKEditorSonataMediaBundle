@@ -12,9 +12,10 @@
             "homepage": "http://dunglas.fr"
         }
     ],
+
     "require": {
-        "php": "^7.2 || ^7.4",
-        "symfony/dependency-injection": "^3.4 || ^4.0",
+        "php": "^7.2 || ^7.4.*",
+        "symfony/dependency-injection": "^3.4 || ^4.0 || ^5.3.*",
         "symfony/http-foundation": "^3.4 || ^4.0",
         "symfony/http-kernel": "^3.4 || ^4.0",
         "symfony/security-core": "^3.4 || ^4.0",
