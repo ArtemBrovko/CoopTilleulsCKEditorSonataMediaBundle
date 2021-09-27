@@ -15,11 +15,11 @@
 
     "require": {
         "php": "^7.4",
-        "symfony/dependency-injection": "^5.3.*",
-        "symfony/http-foundation": "^5.3.*",
-        "symfony/http-kernel": "^5.3.*",
-        "symfony/security-core": "^5.3.*",
-        "symfony/config": "^5.3.*",
+        "symfony/dependency-injection": "5.3.*",
+        "symfony/http-foundation": "5.3.*",
+        "symfony/http-kernel": "5.3.*",
+        "symfony/security-core": "5.3.*",
+        "symfony/config": "5.3.*",
         "sonata-project/media-bundle": "^4.x-dev",
         "sonata-project/admin-bundle": "^4.0.0"
     },
