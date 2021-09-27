@@ -116,31 +116,4 @@ class MediaAdminController extends BaseMediaAdminController
             'object' => $media,
         ]);
     }
-
-    /**
-     * Sets the admin form theme to form view. Used for compatibility between Symfony versions.
-     *
-     * @param string $theme
-     */
-    private function setFormTheme(FormView $formView, $theme)
-    {
-        $twig = $this->get('twig');
-
-        // BC for Symfony < 3.2 where this runtime does not exists
-        if (!method_exists('Symfony\Bridge\Twig\AppVariable', 'getToken')) {
-            $twig->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')
-                ->renderer->setTheme($formView, $theme);
-
-            return;
-        }
-
-        // BC for Symfony < 3.4 where runtime should be TwigRenderer
-        if (!method_exists('Symfony\Bridge\Twig\Command\DebugCommand', 'getLoaderPaths')) {
-            $twig->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->setTheme($formView, $theme);
-
-            return;
-        }
-
-        $twig->getRuntime('Symfony\Component\Form\FormRenderer')->setTheme($formView, $theme);
-    }
 }
