@@ -14,17 +14,30 @@ declare(strict_types=1);
 namespace CoopTilleuls\Bundle\CKEditorSonataMediaBundle\Controller;
 
 use Sonata\MediaBundle\Controller\MediaAdminController as BaseMediaAdminController;
-use Symfony\Component\Form\FormView;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
-
+use Sonata\AdminBundle\Controller\CRUDController;
 /**
  * Adds browser and upload actions.
  *
  * @author Kévin Dunglas <kevin@les-tilleuls.coop>
  */
-class MediaAdminController extends BaseMediaAdminController
+class MediaAdminController extends CRUDController
 {
+
+    /**
+     * Sonata MediaAdminController
+     *
+     * @var Sonata\MediaBundle\Controller\MediaAdminController
+     */
+    private $base;
+
+    public function __construct()
+    {
+        $this->base = new BaseMediaAdminController();
+    }
+
     /**
      * Gets a template.
      *
@@ -116,4 +129,21 @@ class MediaAdminController extends BaseMediaAdminController
             'object' => $media,
         ]);
     }
+
+    public static function getSubscribedServices(): array
+    {
+        return BaseMediaAdminController::getSubscribedServices();
+    }
+
+    public function createAction(Request $request): Response
+    {
+        return $this->base->createAction($request);
+    }
+
+    public function listAction(Request $request): Response
+    {
+        return $this->base->listAction($request);
+    }
+
+
 }
